@@ -2,7 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
 import EmployeeList from './pages/employee-list';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css'
+
 
 import './App.css';
 

@@ -1,0 +1,94 @@
+.react-app {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Open Sans',  sans-serif;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $background;
+  color: $secondary;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &.link {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+h3, legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+input, label, select {
+  max-width: 300px;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;    
+  border-radius: 5px;
+  border: 1px solid rgba($secondary, .3); ;
+  padding:20px;
+  margin: 15px;
+
+  legend{
+    padding: 5px 10px;
+  }
+}
+
+.box {
+  background-color: white;
+  padding: 30px 50px;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--jse {
+    justify-content: space-evenly;
+  }
+
+  &--start {
+    align-items: flex-start;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,171 @@
+.date-picker {
+  position: relative;
+
+  .input-date {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 25px;
+    cursor: pointer;
+  
+    label, input {
+      padding: 5px 10px;
+      pointer-events: none;
+    }
+  
+    &__content {
+      position: relative;
+      display: flex;
+      flex-direction: row; 
+      align-items: center;   
+      border: none;    
+      border: 1px  solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 5px;
+      width: 100%;
+  
+      i {
+        width: 30px;
+        display: block;
+        padding: 5px 10px;
+        line-height: 18px;
+        color: var(--text-color);
+      }
+  
+      input {
+        flex: 1 1 auto;
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        transition: border .3s ease-in-out;
+        z-index: 2;    
+        border-radius: 5px;  
+        background: transparent;
+        color: var(--text-color);
+      }
+    }
+  
+    label {
+      position: absolute;
+      top:0;
+      left: 0;
+      opacity: 0.5;
+      line-height: 1.3rem;
+      transform-origin: center left;
+      transition: transform .15s ease-in-out;
+  
+      &.indent {
+        left: 25px;
+      }
+    }
+  
+    &__error-message {
+      position: absolute;
+      right:0;
+      top: 30px;
+      font-size: 0.6rem;
+      color: var(--error-color)!important;
+      animation: error .25s ease-in both;
+    }
+  
+    &--active {
+      label {  
+        opacity: 1;    
+        transform: translate(-5px, -25px) scale(0.85);
+      }
+    }
+
+    &--focus {
+      label, i {
+        color: var(--focus-color)!important;
+      }
+      .input__content {
+        border-color: var(--focus-color);
+      }    
+    }
+  
+    &--error {
+      label, input, i {      
+        color: var(--error-color)!important;
+      }
+  
+      .input-date__content {
+        border: 1px  solid var(--error-color);
+      }
+    }
+  }
+
+  .picker {
+    position: absolute!important;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    z-index: 10;      
+    transform-origin: top;
+    display: none;
+    opacity: 0;
+    transform: scale(0.6);
+
+    &.hide {
+      display: block;
+      pointer-events: none;
+      animation: hide-picker .15s ease-in both;
+    }
+
+    &.show {
+      display: block;
+      animation: show-picker .15s ease-out both;
+    }
+
+    @keyframes error {
+      0% {
+        opacity: 0;
+        transform: translateX(3px);
+      }
+    
+      25% {
+        transform: translateX(-3px);
+      }
+    
+      50% {
+        transform: translateX(3px);
+      }
+    
+      75% {
+        transform: translateX(-3px);
+      }
+    
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+  }
+
+  @keyframes show-picker {
+    0% {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes hide-picker {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+}
+
+

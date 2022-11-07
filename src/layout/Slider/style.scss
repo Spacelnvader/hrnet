@@ -1,0 +1,45 @@
+@import '../../sass/themes/colors';
+
+#slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 180px;
+  margin: 30px 0;
+
+  a {
+    li {
+      padding: 7px 10px;
+      border-left: 4px solid $grey-ligth;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: border .15s ease-in-out;
+  
+      i {
+        margin-right: 15px;
+      } 
+    }
+
+    &:hover {
+      li {
+        border-left: 20px solid $secondary;
+      }      
+    }
+
+    &.active {      
+      color: $green-ligth!important;
+  
+      li {
+        border-color: $green-ligth!important;  
+      }
+
+      &:hover {
+        li {
+          border-left: 4px solid $grey-ligth;
+        }
+      }
+    }
+  }
+}

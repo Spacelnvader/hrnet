@@ -1,0 +1,19 @@
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex: 1 0 auto;
+
+  .main-content {
+    flex:1 1 auto;
+    display: flex;
+    justify-content: center;
+    padding:20px;
+  }
+}
+
+@media (max-width: $screen-lg) {
+  .main-content {
+    margin-right: 0px!important;
+  }
+}

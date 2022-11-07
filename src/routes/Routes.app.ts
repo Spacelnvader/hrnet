@@ -1,6 +1,5 @@
 import Error from '../pages/Error'
 import Home from '../pages/Home'
-import Employees from '../pages/Employees'
 import { RouteAppObject } from "../interfaces/Routes.intf"
 import { faUserPlus, faUsers, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,14 +12,6 @@ const routeList: RouteAppObject[] = [
     Component: Home,
     title: 'HRnet',
     icon: faUserPlus
-  },
-  { 
-    path: '/employee-list', 
-    name: 'employees',
-    label: 'View Employees',
-    Component: Employees, 
-    title: 'CurrentEmployees',   
-    icon: faUsers
   },
   {
     path: '*', 

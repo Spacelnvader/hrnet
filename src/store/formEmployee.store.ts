@@ -28,6 +28,7 @@ const formEmployeeSlice:Slice = createSlice({
     },
 
     updateState: (state: FormEmployeeState, action: PayloadAction<FormEmployeeState>) => {
+      // renvoie soit  le payload si il existe, sinon la valeur du state initial
       state.formInputFirstname = action.payload.formInputFirstname ?? state.formInputFirstname
       state.formInputLastname = action.payload.formInputLastname ?? state.formInputLastname
       state.formInputDateOfBirth = action.payload.formInputDateOfBirth ?? state.formInputDateOfBirth

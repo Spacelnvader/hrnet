@@ -12,11 +12,12 @@ import DepartmentsData from "../../data/departments.json"
 import Dialog from "../../components/Dialog"
 import { useAppDispatch, useAppSelector } from "../../store/main.store"
 import { FormEmployeeActions } from "../../store/formEmployee.store"
-
+import { listEmployeesActions } from "../../store/listEmployees.store"
+import { Employee } from "../../interfaces/Employee.intf"
 import Dropdown from "../../components/DropDown"
 
 const Home: React.FunctionComponent = () => {
-  
+  const states: any[] = StatesData
   const statesName: string[] = StatesData.map((element) => element.name)
   
   const departments: string[] = DepartmentsData
@@ -34,16 +35,47 @@ const Home: React.FunctionComponent = () => {
 
   const [showSuccessDialog, setShowSuccessDialog] = useState(false)
 
-
+  const checkFormNoErrors = (): boolean => {
+    return (
+      formInputFirstname.inputIsValid === true &&
+      formInputLastname.inputIsValid === true &&
+      formInputDateOfBirth.inputIsValid === true &&
+      formInputStreet.inputIsValid === true &&
+      formInputCity.inputIsValid === true &&
+      formInputState.inputIsValid === true &&
+      formInputZipcode.inputIsValid === true &&
+      formInputCompanyStart.inputIsValid === true &&
+      formInputDepartment.inputIsValid === true
+    )
+  }
 
   const checkFormInputStringValid = (value: string): boolean => typeof(value) === "string" && value.length > 2
   const checkFormInputStringDate = (value: Date): boolean  => value instanceof Date
   const checkFormInputStringSelect = (listData: string[], value?: string): boolean  => typeof(value) === "string" && listData.includes(value)
   const checkFormInputZipCode = (value: string): boolean  => typeof(value) === "string" && value.length === 5
 
-  
+  const onSubmit = () => {
+    dispatch(FormEmployeeActions.displayInputsError({}))
+    if(checkFormNoErrors()) storeData()
+  }
 
-  
+  const storeData = () => {
+    const employee: Employee = {
+      firstname: formInputFirstname.value,
+      lastname: formInputLastname.value,
+      dateOfBirth: formInputDateOfBirth.value,
+      street: formInputStreet.value,
+      city: formInputCity.value,
+      state: states.find(item => item['name'] === formInputState.value)['abbreviation'] ,
+      zipcode: parseInt(formInputZipcode.value),
+      start: formInputCompanyStart.value,
+      department: formInputDepartment.value
+    }
+
+    dispatch(listEmployeesActions.addEmployee(employee))
+    dispatch(FormEmployeeActions.reset({}))
+    setShowSuccessDialog(true)
+  }
 
   return (
     <section className="box" id="home">
@@ -253,7 +285,7 @@ const Home: React.FunctionComponent = () => {
       </form>
       <div className="form-controllers">
         <Button label="Reset" outlined primaryColor={Colors.greyLigth} secondaryColor={Colors.secondary} onClick={() => dispatch(FormEmployeeActions.reset({})) } />
-        <Button label="Save" primaryColor={Colors.primary} />
+        <Button label="Save" onClick={onSubmit} primaryColor={Colors.primary} />
       </div>
       <Dialog text="Employee Created !" showDialog={showSuccessDialog} onClose={() => setShowSuccessDialog(false)} />
     </section>  

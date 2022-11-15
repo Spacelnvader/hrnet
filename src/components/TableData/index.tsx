@@ -17,6 +17,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [nbrPages, setNbrPages] = useState<number>(1)
 
+    //on utilise un useRef car le contenu changera en fonction de ce que marque l'utilisateur
     const searchInput = useRef<HTMLInputElement>(null)
 
     useEffect(() => {

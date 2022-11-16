@@ -69,7 +69,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
         let resultTabSearch: Object[] = []
 
         keywords = keywords.map((value) => value.toLowerCase())
-
+        
         keywords.forEach((word) => {
             const wordResultTabSearch: Object[] = []
 
@@ -97,13 +97,13 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
 
         return keywords.length > 0 && resultTabSearch.length > 0 ? resultTabSearch : listObjectsData
     }
-
+    // champ de recherche
     const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const newFilterTab = filterTableSearch(e.currentTarget.value)
 
         setFilterListObjectsData(newFilterTab)
     }
-
+    // changer  le nombre de résultats affichés
     const handleChangeEntries = (e: ChangeEvent<HTMLSelectElement>) => {
         const newNbrEntriesCount: number = parseInt(e.currentTarget.value)
         setEntriesCount(newNbrEntriesCount)
@@ -131,6 +131,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
                                     {item.label}
                                 </span>
                                 <div className='table-data__table__header__legend__controls'>
+                                    {/* si la recherche asc est active sur cet onglet, on met la flèche en surbrillance */}
                                     <i className={`${arraySortSelected?.index === index && arraySortSelected.filter === TablDataFilterSortType.asc ? 'active' : ''}`}>
                                         <FontAwesomeIcon
                                             onClick={() => handleChangeSort({ index: index, filter: TablDataFilterSortType.asc })}
@@ -138,6 +139,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
                                             fontSize={'10px'}
                                         />
                                     </i>
+                                    {/* si la recherche desc est active sur cet onglet, on met la flèche en surbrillance */}
                                     <i className={`${arraySortSelected?.index === index && arraySortSelected.filter === TablDataFilterSortType.desc ? 'active' : ''}`}>
                                         <FontAwesomeIcon
                                             onClick={() => handleChangeSort({ index: index, filter: TablDataFilterSortType.desc })}
@@ -260,6 +262,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
                         <div className='table-data__filter__search'>
                             <label>{translate.get('search')}</label>
                             <input name="search" ref={searchInput} onChange={handleChangeSearch} />
+                            
                         </div>
                     </div>
                     <div className='table-data__container'>
@@ -283,6 +286,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
                         }
                     </div>
                     <div className='table-data__pagination'>
+                        {/* on génère la pagination seulement si le nombre de pages est supérieur à 1 */}
                         {nbrPages > 1 ? generatePagination() : null}
                     </div>
                 </div>

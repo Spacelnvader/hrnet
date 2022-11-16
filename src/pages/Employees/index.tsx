@@ -7,6 +7,7 @@ import { TableDataLegend } from '../../components/TableData/intf';
 import Colors from '../../sass/themes/_colors.module.scss'
 
 
+
 const Employees: React.FunctionComponent = () => {
     const listLegend: TableDataLegend[] = [
         { label: 'First Name', entry: 'firstname' },
@@ -47,7 +48,9 @@ const Employees: React.FunctionComponent = () => {
                 color={Colors.greenLigth}
                 textColor={Colors.secondary}
             />
+            {/* <button onClick={}>test</button> */}
         </section>
+        
     )
 }
 

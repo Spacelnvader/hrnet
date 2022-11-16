@@ -65,11 +65,13 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
     }
 
     const filterTableSearch = (value: string): Object[] => {
+        let trimedValue = value.trim()
+        if (!trimedValue) return listObjectsData
         let keywords: string[] = value.split(' ')
         let resultTabSearch: Object[] = []
 
         keywords = keywords.map((value) => value.toLowerCase())
-        
+
         keywords.forEach((word) => {
             const wordResultTabSearch: Object[] = []
 
@@ -95,7 +97,7 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
             resultTabSearch = resultTabSearch.concat(wordResultTabSearch)
         })
 
-        return keywords.length > 0 && resultTabSearch.length > 0 ? resultTabSearch : listObjectsData
+        return keywords.length > 0 && resultTabSearch.length > 0 ? resultTabSearch : []
     }
     // champ de recherche
     const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -162,9 +164,11 @@ const TableData: FunctionComponent<TablDataProps> = ({ listObjectsData, listLege
 
         const filterTabFilterWithEntriesCount = filterListObjectsData.slice(startEntries, endEntries)
 
+        ///////////////////////////////////////// /!\ /////////////////////////////
         return (
             <tbody>
                 {filterListObjectsData.length > 0 ? (
+                    //console.log(filterListObjectsData)
                     filterTabFilterWithEntriesCount.map((data: Object, index: number) => (
                         generateLineEmployee(index, data)
                     ))

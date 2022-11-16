@@ -7,7 +7,7 @@ import Footer from './layout/Footer';
 import Slider from './layout/Slider';
 import { useAppDispatch } from './store/main.store';
 import { listEmployeesActions } from './store/listEmployees.store';
-import { generateEmployees } from './utils/generateEmployees';
+//import { generateEmployees } from './utils/generateEmployees';
 
 const App: React.FunctionComponent = () => {
   const dispatch = useAppDispatch()

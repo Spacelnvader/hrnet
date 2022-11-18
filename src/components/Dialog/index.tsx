@@ -1,5 +1,3 @@
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSSProperties, FunctionComponent, useEffect, useState } from 'react';
 import './style.scss';
 
@@ -35,7 +33,7 @@ const Dialog: FunctionComponent<DialogProps> = ({ text, showDialog, duration = 5
       { displayDialog ? (
         <div className={`dialog__modal${ !showDialog ? ' hide' : '' }`}>
           <p>{text}</p>
-          <i onClick={() => onClose()}><FontAwesomeIcon icon={faCircleXmark}/></i>
+          <i onClick={() => onClose()}>X</i>
         </div>
       ) : null }
     </div>

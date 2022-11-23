@@ -30,6 +30,7 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "sass": "^1.53.0",
+    "space-component-modal": "^1.0.0",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
@@ -58,6 +59,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "modal-for-ts": "^1.0.2"
   }
 }

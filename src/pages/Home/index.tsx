@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Dialog } from "space-component-modal"
 import Button from "../../components/Button"
 import Input from "../../components/Input"
 import DatePicker, { DatePickerResult } from "../../components/DatePicker"
@@ -9,7 +10,6 @@ import "./style.scss"
 import StatesData from "../../data/states.json"
 import DepartmentsData from "../../data/departments.json"
 
-import Dialog from "../../components/Dialog"
 import { useAppDispatch, useAppSelector } from "../../store/main.store"
 import { FormEmployeeActions } from "../../store/formEmployee.store"
 import { listEmployeesActions } from "../../store/listEmployees.store"

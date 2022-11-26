@@ -16,10 +16,11 @@ const Slider: FunctionComponent = () => {
         { RoutesApp.routeList.map(({ path, label, name, icon }) => (
           path !== '*' ?
           <NavLink key={name} to={path}>
-            <li>            
+            <ul><li>
+                        
               { icon != null ?  <i><FontAwesomeIcon size='lg' icon={icon!} /></i> : null }
               {label}              
-            </li>
+            </li></ul>
           </NavLink>
           : null       
         ))}

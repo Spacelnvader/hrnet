@@ -48,7 +48,7 @@ const Employees: React.FunctionComponent = () => {
                 color={Colors.greenLigth}
                 textColor={Colors.secondary}
             />
-            {/* <button onClick={}>test</button> */}
+            
         </section>
         
     )

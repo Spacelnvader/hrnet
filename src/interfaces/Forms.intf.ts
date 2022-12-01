@@ -4,11 +4,11 @@ import { HTMLInputTypeAttribute, MouseEventHandler } from "react"
 export type InputType = {
   prependIcon?: IconProp
   appendIcon?: IconProp
-  label?: string
-  name?: string
+  label: string
+  name: string
   placeholder?: string
-  errorMessage?: string
-  inputIsValid?: boolean
+  errorMessage: string
+  inputIsValid: boolean
   error?: boolean
   isFocus?:boolean
   value?: string | string[] | boolean | number

@@ -8,7 +8,7 @@ export type InputType = {
   name: string
   placeholder?: string
   errorMessage: string
-  inputIsValid: boolean
+  inputIsValid?: boolean
   error?: boolean
   isFocus?:boolean
   value?: string | string[] | boolean | number
